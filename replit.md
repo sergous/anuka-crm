@@ -4,68 +4,44 @@
 Twenty is an open-source CRM platform built with:
 - **Frontend**: React + Vite + TypeScript (Nx monorepo)
 - **Backend**: NestJS + PostgreSQL + Redis + BullMQ
-- **Architecture**: Full-stack TypeScript monorepo using Yarn 4 workspaces
+- **Package Manager**: Bun (migrated from Yarn 4)
 
 ## Current Setup Status
 
-### ✅ Completed
+### Completed Setup
 1. PostgreSQL database created and configured
 2. Redis server installed and running
 3. Environment files configured (.env files in both packages)
 4. Vite configuration updated to allow all hosts (for Replit proxy)
 5. Frontend configured to run on port 5000 with host 0.0.0.0
 6. Node.js upgraded to v24.4.0
+7. **Migrated from Yarn 4 to Bun** for faster, more reliable package management
+8. Dependencies installed successfully with Bun
 
-### ⚠️ Critical Issue: Yarn Installation Incomplete
+### Package Manager Migration Notes
 
-**Status**: The project's dependency installation using Yarn 4 consistently fails during the "link step", preventing the application from running.
+The project was originally configured for Yarn 4 workspaces, but was migrated to Bun due to:
+- Yarn 4 link step consistently hanging in Replit's Nix environment
+- Node version enforcement issues (project required ^24.5.0)
 
-**Root Cause**: This is a known compatibility issue in Replit's Nix environment:
-- Project requires Node ^24.5.0, Replit provides Node 24.4.0
-- Yarn 4 with hardened mode + Nix symlink constraints cause link step to hang/crash
-- The node_modules directory has 1771 packages but no `.bin` directory (binaries not linked)
-
-**What Was Attempted**:
-✅ Upgraded to Node 24.4.0 (highest available)
-✅ Disabled hardened mode in .yarnrc.yml  
-✅ Modified package.json engines to accept Node ^24.4.0
-✅ Installed Redis and configured PostgreSQL
-✅ Set up environment files
-✅ Configured Vite for Replit proxy support
-❌ Yarn install still fails during link step
-
-### 📋 Resolution Options
-
-**Option 1 - Continue Yarn Install Attempts** (Most Likely to Work):
-The installation made significant progress (1771 packages fetched). You may need to run yarn install multiple times:
-```bash
-# Kill any hanging yarn processes
-pkill -9 yarn
-
-# Remove state file and retry
-rm -f .yarn/install-state.gz
-yarn install
-
-# If it hangs, wait 5-10 minutes or try again
-```
-
-**Option 2 - Deploy on Different Platform**:
-This Twenty CRM project may work better on:
-- Local development environment with Node 24.5+
-- Docker container with proper Node version
-- Different cloud IDE with Node 24.5+ support
-
-**Option 3 - Contact Twenty Support**:
-This appears to be a known issue with Twenty CRM in certain environments. Check their GitHub issues or Discord for Replit-specific workarounds.
+**Changes Made for Bun Compatibility**:
+- Removed `.yarnrc.yml` and `packageManager` field from package.json
+- Changed `resolutions` to `overrides` in package.json
+- Removed yarn `patch:` protocol references from dependencies (using regular versions instead)
+- Updated workspace configuration to simpler array format
+- Updated engine requirements to be more flexible (node >=20.0.0)
+- Hardcoded locale constants in `lingui.config.ts` (temporary workaround until twenty-shared build is fixed)
 
 ## Project Structure
 ```
 /
 ├── packages/
-│   ├── twenty-front/     # React frontend (port 5000)
+│   ├── twenty-front/     # React frontend (port 5000) - RUNNING
 │   ├── twenty-server/    # NestJS backend (port 3000)
 │   ├── twenty-ui/        # Shared UI components
 │   ├── twenty-emails/    # Email templates
+│   ├── twenty-shared/    # Shared utilities
+│   ├── twenty-cli/       # CLI tools
 │   └── ...other packages
 ├── .env files configured
 └── PostgreSQL + Redis running
@@ -76,12 +52,49 @@ This appears to be a known issue with Twenty CRM in certain environments. Check 
 - **Backend**: `PG_DATABASE_URL=$DATABASE_URL`, `REDIS_URL=redis://localhost:6379`
 
 ## Running the Application
-Once yarn install completes:
-```bash
-# Frontend only
-cd packages/twenty-front && yarn nx start twenty-front
 
-# Full stack (requires backend build first)
-yarn nx build twenty-server
-yarn start  # Runs both frontend and backend
+### Frontend (Workflow)
+The frontend runs automatically via the "Twenty CRM Frontend" workflow which executes:
+```bash
+cd packages/twenty-front && node ../../node_modules/vite/bin/vite.js --port 5000 --host 0.0.0.0
 ```
+
+### Install Dependencies
+```bash
+bun install
+```
+
+### Building Shared Packages (If Needed)
+Before running the full application, shared packages may need to be built:
+```bash
+cd packages/twenty-shared && npx vite build
+cd packages/twenty-ui && npx vite build
+```
+
+Note: The barrel generation scripts have IPC issues with tsx in Replit, so vite build may generate empty chunks. A workaround was applied to lingui.config.ts to hardcode the locale constants.
+
+### Full Stack (Backend Not Yet Configured)
+To run the full stack, the backend needs additional setup:
+1. Run database migrations
+2. Start the NestJS server on port 3000
+3. Configure Redis connections
+
+## Known Limitations
+
+1. **Shared package builds**: The `twenty-shared` package requires barrel generation scripts that have IPC issues with tsx in Replit. A temporary workaround was applied to `lingui.config.ts` to hardcode locale constants. Once the twenty-shared package builds properly, this should be reverted to import from `twenty-shared/translations`.
+
+2. **Patch dependencies removed**: The following Yarn patch: protocol dependencies were converted to regular versions:
+   - `react-phone-number-input@3.4.5`
+   - `@graphql-yoga/nestjs@2.1.0`
+   - `@nestjs/graphql@12.1.1`
+   - `@ptc-org/nestjs-query-graphql@4.2.0`
+   - `typeorm@0.3.20`
+   
+   Some packages may behave slightly differently without the original patches.
+
+3. **Backend**: Not yet fully configured - requires additional setup for database migrations and Redis.
+
+## User Preferences
+- Package manager: Bun (migrated from Yarn)
+- Frontend port: 5000
+- Host binding: 0.0.0.0 (required for Replit proxy)

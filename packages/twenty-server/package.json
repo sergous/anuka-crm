@@ -9,7 +9,7 @@
     "start:prod": "node dist/main",
     "command:prod": "node dist/command/command",
     "worker:prod": "node dist/queue-worker/queue-worker",
-    "database:init:prod": "npx ts-node ./scripts/setup-db.ts && yarn database:migrate:prod",
+    "database:init:prod": "npx ts-node ./scripts/setup-db.ts && bun run database:migrate:prod",
     "database:migrate:prod": "npx -y typeorm migration:run -d dist/database/typeorm/core/core.datasource",
     "clickhouse:migrate:prod": "node dist/database/clickHouse/migrations/run-migrations.js",
     "typeorm": "../../node_modules/typeorm/.bin/typeorm"
@@ -35,7 +35,7 @@
     "@faker-js/faker": "9.8.0",
     "@graphql-tools/schema": "10.0.4",
     "@graphql-tools/utils": "9.2.1",
-    "@graphql-yoga/nestjs": "patch:@graphql-yoga/nestjs@2.1.0#./patches/@graphql-yoga+nestjs+2.1.0.patch",
+    "@graphql-yoga/nestjs": "2.1.0",
     "@lingui/conf": "5.1.2",
     "@lingui/core": "^5.1.2",
     "@lingui/format-po": "5.1.2",
@@ -49,7 +49,7 @@
     "@nestjs/config": "3.3.0",
     "@nestjs/core": "11.1.9",
     "@nestjs/event-emitter": "2.1.0",
-    "@nestjs/graphql": "patch:@nestjs/graphql@12.1.1#./patches/@nestjs+graphql+12.1.1.patch",
+    "@nestjs/graphql": "12.1.1",
     "@nestjs/jwt": "11.0.1",
     "@nestjs/passport": "11.0.5",
     "@nestjs/platform-express": "11.1.9",
@@ -65,7 +65,7 @@
     "@opentelemetry/sdk-metrics": "^2.0.0",
     "@opentelemetry/sdk-node": "^0.202.0",
     "@ptc-org/nestjs-query-core": "4.4.0",
-    "@ptc-org/nestjs-query-graphql": "patch:@ptc-org/nestjs-query-graphql@4.2.0#./patches/@ptc-org+nestjs-query-graphql+4.2.0.patch",
+    "@ptc-org/nestjs-query-graphql": "4.2.0",
     "@ptc-org/nestjs-query-typeorm": "4.2.1-alpha.2",
     "@react-email/render": "^1.2.3",
     "@sentry/nestjs": "^10.27.0",
@@ -167,7 +167,7 @@
     "tsdav": "^2.1.5",
     "tslib": "2.8.1",
     "type-fest": "4.10.1",
-    "typeorm": "patch:typeorm@0.3.20#./patches/typeorm+0.3.20.patch",
+    "typeorm": "0.3.20",
     "unzipper": "^0.12.3",
     "uuid": "9.0.1",
     "vite-tsconfig-paths": "4.3.2",
@@ -217,8 +217,6 @@
     "twenty-shared": "workspace:*"
   },
   "engines": {
-    "node": "^24.5.0",
-    "npm": "please-use-yarn",
-    "yarn": "^4.0.2"
+    "node": ">=20.0.0"
   }
 }
