@@ -22,13 +22,13 @@ args = "Twenty CRM Frontend"
 name = "Twenty CRM Frontend"
 author = "agent"
 
+[workflows.workflow.metadata]
+outputType = "webview"
+
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "cd packages/twenty-front && node ../../node_modules/vite/bin/vite.js --port 5000 --host 0.0.0.0"
 waitForPort = 5000
-
-[workflows.workflow.metadata]
-outputType = "webview"
 
 [[ports]]
 localPort = 5000
