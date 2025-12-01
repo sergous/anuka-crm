@@ -1,0 +1,226 @@
+2025-12-01T11:33:57Z info: Deployment: 09e926d0-d32e-4d1f-b5f1-e588b30b4f41
+2025-12-01T11:33:57Z info: Connecting to builder
+2025-12-01T11:33:58Z info: Builder connected
+2025-12-01T11:33:58Z info: Installing packages
+--> bun install
+
+bun install v1.2.16 (631e6748)
+
+207 |     "graphql-redis-subscriptions": {
+                                         ^
+warn: Bun currently does not support nested "overrides"
+   at /home/runner/workspace/package.json:207:36
+
+warn: Slow filesystem detected. If /home/runner/workspace/.cache/.bun/install/cache is a network drive, consider setting $BUN_INSTALL_CACHE_DIR to a local folder.
+Saved lockfile
+
+Checked 7164 installs across 5067 packages (no changes) [29.24s]
+
+2025-12-01T11:34:28Z info: Starting Build
+$ cd packages/twenty-shared && bun x vite build && cd ../twenty-ui && bun x vite build && cd ../twenty-front && NODE_ENV=production VITE_DISABLE_TYPESCRIPT_CHECKER=true bun x vite build && sh ./scripts/inject-runtime-env.sh
+
+You are using Node.js 22.6.0. Vite requires Node.js version 20.19+ or 22.12+. Please upgrade your Node.js version.
+
+The CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.
+
+Generated an empty chunk: "index".
+
+Generated an empty chunk: "index".
+
+src/components/chip/Chip.tsx (1:21): A comment
+
+"/*#__PURE__*/"
+
+in "src/components/chip/Chip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/components/chip/Chip.tsx (1:21): A comment
+
+"/*#__PURE__*/"
+
+in "src/components/chip/Chip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/components/chip/Chip.tsx (1:21): A comment
+
+"/*#__PURE__*/"
+
+in "src/components/chip/Chip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/components/chip/Chip.tsx (1:21): A comment
+
+"/*#__PURE__*/"
+
+in "src/components/chip/Chip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/components/chip/Chip.tsx (1:21): A comment
+
+"/*#__PURE__*/"
+
+in "src/components/chip/Chip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/components/chip/Chip.tsx (1:21): A comment
+
+"/*#__PURE__*/"
+
+in "src/components/chip/Chip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/components/chip/Chip.tsx (1:21): A comment
+
+"/*#__PURE__*/"
+
+in "src/components/chip/Chip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/components/chip/Chip.tsx (1:21): A comment
+
+"/*#__PURE__*/"
+
+in "src/components/chip/Chip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/components/chip/Chip.tsx (1:21): A comment
+
+"/*#__PURE__*/"
+
+in "src/components/chip/Chip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/components/chip/Chip.tsx (1:21): A comment
+
+"/*#__PURE__*/"
+
+in "src/components/chip/Chip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+src/components/chip/Chip.tsx (1:21): A comment
+
+"/*#__PURE__*/"
+
+in "src/components/chip/Chip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/components/chip/Chip.tsx (1:21): A comment
+
+"/*#__PURE__*/"
+
+in "src/components/chip/Chip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/components/chip/LinkChip.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/components/chip/LinkChip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/navigation/link/components/ContactLink.tsx (2:21): A comment
+
+"/*#__PURE__*/"
+
+in "src/navigation/link/components/ContactLink.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/navigation/link/components/ContactLink.tsx (2:21): A comment
+
+"/*#__PURE__*/"
+
+in "src/navigation/link/components/ContactLink.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/display/tooltip/OverflowingTextWithTooltip.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/display/tooltip/OverflowingTextWithTooltip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+src/display/tooltip/OverflowingTextWithTooltip.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/display/tooltip/OverflowingTextWithTooltip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/display/tooltip/OverflowingTextWithTooltip.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/display/tooltip/OverflowingTextWithTooltip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+src/display/tooltip/OverflowingTextWithTooltip.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/display/tooltip/OverflowingTextWithTooltip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/display/tooltip/OverflowingTextWithTooltip.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/display/tooltip/OverflowingTextWithTooltip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/display/tooltip/OverflowingTextWithTooltip.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/display/tooltip/OverflowingTextWithTooltip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/display/tooltip/OverflowingTextWithTooltip.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/display/tooltip/OverflowingTextWithTooltip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+src/display/tooltip/OverflowingTextWithTooltip.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/display/tooltip/OverflowingTextWithTooltip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+src/display/tooltip/OverflowingTextWithTooltip.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/display/tooltip/OverflowingTextWithTooltip.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/display/avatar/components/Avatar.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/display/avatar/components/Avatar.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+src/display/avatar/components/Avatar.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/display/avatar/components/Avatar.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+src/display/avatar/components/Avatar.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/display/avatar/components/Avatar.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+src/display/avatar/components/Avatar.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/display/avatar/components/Avatar.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+src/display/avatar/components/Avatar.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/display/avatar/components/Avatar.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+src/display/avatar/components/Avatar.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/display/avatar/components/Avatar.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+src/display/avatar/components/Avatar.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/display/avatar/components/Avatar.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/navigation/link/components/RoundedLink.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/navigation/link/components/RoundedLink.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+src/components/tag/Tag.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/components/tag/Tag.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+src/components/tag/Tag.tsx (1:9): A comment
+
+"/*#__PURE__*/"
+
+in "src/components/tag/Tag.tsx" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+
+Generated an empty chunk: "index".
+
+Generated an empty chunk: "index".
+
+Deployment timed out. Check the Logs tab for more details. - 2025-12-01T11:42:57.897Z
