@@ -22,8 +22,9 @@ Twenty is an open-source CRM platform built with:
 
 ### Deployment Configuration
 - **Deployment type**: Static site
-- **Build command**: `npm run build --workspace=twenty-front`
+- **Build command**: Full build with dependencies - installs, builds shared packages, then frontend
 - **Public directory**: `packages/twenty-front/build`
+- **Vite version**: Downgraded to 6.x for Bun 1.2 (Node.js 22.6.0) compatibility
 - **npm override syntax**: Corrected for npm compatibility (nested object format)
 - **Engine constraints**: All packages updated to `node: ">=20.0.0"` (removed `please-use-yarn`)
 

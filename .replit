@@ -1,4 +1,4 @@
-modules = ["bash", "bun", "nodejs-24", "bun-1.2"]
+modules = ["bash", "bun", "nodejs-22", "bun-1.2"]
 [agent]
 expertMode = true
 
@@ -36,5 +36,5 @@ externalPort = 80
 
 [deployment]
 deploymentTarget = "static"
-build = ["bash", "-c", "cd packages/twenty-front && NODE_ENV=production VITE_DISABLE_TYPESCRIPT_CHECKER=true NODE_OPTIONS=--max-old-space-size=4096 bunx vite build && sh ./scripts/inject-runtime-env.sh"]
+build = ["bash", "-c", "bun install && cd packages/twenty-shared && bun run build && cd ../twenty-ui && bun run build && cd ../twenty-front && NODE_ENV=production VITE_DISABLE_TYPESCRIPT_CHECKER=true bunx vite build && sh ./scripts/inject-runtime-env.sh"]
 publicDir = "packages/twenty-front/build"
