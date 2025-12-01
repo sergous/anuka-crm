@@ -1,4 +1,4 @@
-modules = ["bash", "nodejs-24"]
+modules = ["bash", "bun", "nodejs-24", "bun-1.2"]
 [agent]
 expertMode = true
 
@@ -27,7 +27,7 @@ outputType = "webview"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd packages/twenty-front && node ../../node_modules/vite/bin/vite.js --port 5000 --host 0.0.0.0"
+args = "cd packages/twenty-front && bun ../../node_modules/vite/bin/vite.js --port 5000 --host 0.0.0.0"
 waitForPort = 5000
 
 [[ports]]
@@ -35,4 +35,6 @@ localPort = 5000
 externalPort = 80
 
 [deployment]
-deploymentTarget = "cloudrun"
+deploymentTarget = "static"
+build = ["npm", "run", "build", "--workspace=twenty-front"]
+publicDir = "packages/twenty-front/build"

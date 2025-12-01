@@ -4,7 +4,7 @@
 Twenty is an open-source CRM platform built with:
 - **Frontend**: React + Vite + TypeScript (Nx monorepo)
 - **Backend**: NestJS + PostgreSQL + Redis + BullMQ
-- **Package Manager**: Bun (migrated from Yarn 4)
+- **Package Manager**: Bun 1.2.16 (migrated from Yarn 4)
 
 ## Current Setup Status
 
@@ -14,11 +14,18 @@ Twenty is an open-source CRM platform built with:
 3. Environment files configured (.env files in both packages)
 4. Vite configuration updated for Replit proxy (allowedHosts: ['.replit.dev', '.spock.replit.dev', 'localhost'])
 5. Frontend configured to run on port 5000 with host 0.0.0.0
-6. Node.js upgraded to v24.4.0
+6. **Upgraded to Bun 1.2.16** (includes Node.js 22.6.0)
 7. **Migrated from Yarn 4 to Bun** for faster, more reliable package management
 8. Dependencies installed successfully with Bun
 9. **twenty-shared and twenty-ui packages built** - Required for frontend imports
 10. **Vite file watching configured** - Using polling mode (interval: 1000ms) to avoid ENOSPC errors
+
+### Deployment Configuration
+- **Deployment type**: Static site
+- **Build command**: `npm run build --workspace=twenty-front`
+- **Public directory**: `packages/twenty-front/build`
+- **npm override syntax**: Corrected for npm compatibility (nested object format)
+- **Engine constraints**: All packages updated to `node: ">=20.0.0"` (removed `please-use-yarn`)
 
 ### Package Manager Migration Notes
 

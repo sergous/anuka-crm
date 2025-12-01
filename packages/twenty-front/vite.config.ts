@@ -78,8 +78,9 @@ export default defineConfig(({ command, mode }) => {
       allowedHosts: ['.replit.dev', '.spock.replit.dev', 'localhost'],
       watch: {
         usePolling: true,
-        interval: 1000,
-        ignored: ['**/node_modules/**', '**/dist/**', '**/.git/**', '**/coverage/**', '**/.cache/**'],
+        interval: 2000,
+        batchDelay: 500,
+        ignored: ['**/node_modules/**', '**/dist/**', '**/.git/**', '**/coverage/**', '**/.cache/**', '**/__tests__/**', '**/__stories__/**', '**/__mocks__/**', '**/*.test.*', '**/*.spec.*', '**/*.stories.*'],
       },
       ...(SSL_KEY_PATH && SSL_CERT_PATH
         ? {
