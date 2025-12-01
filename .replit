@@ -36,5 +36,5 @@ externalPort = 80
 
 [deployment]
 deploymentTarget = "static"
-build = ["npm", "run", "build", "--workspace=twenty-front"]
+build = ["bun", "run", "build", "--filter=twenty-front"]
 publicDir = "packages/twenty-front/build"
