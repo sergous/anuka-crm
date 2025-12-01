@@ -36,5 +36,5 @@ externalPort = 80
 
 [deployment]
 deploymentTarget = "static"
-build = ["bash", "-c", "bun install && cd packages/twenty-shared && bun run build && cd ../twenty-ui && bun run build && cd ../twenty-front && NODE_ENV=production VITE_DISABLE_TYPESCRIPT_CHECKER=true bunx vite build && sh ./scripts/inject-runtime-env.sh"]
+build = ["bash", "-c", "cd packages/twenty-shared && bunx vite build && cd ../twenty-ui && bunx vite build && cd ../twenty-front && NODE_ENV=production VITE_DISABLE_TYPESCRIPT_CHECKER=true bunx vite build && sh ./scripts/inject-runtime-env.sh"]
 publicDir = "packages/twenty-front/build"
