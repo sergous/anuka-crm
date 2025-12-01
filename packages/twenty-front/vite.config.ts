@@ -74,7 +74,8 @@ export default defineConfig(({ command, mode }) => {
 
     server: {
       port: port,
-      ...(VITE_HOST ? { host: VITE_HOST } : {}),
+      host: VITE_HOST || '0.0.0.0',
+      allowedHosts: 'all',
       ...(SSL_KEY_PATH && SSL_CERT_PATH
         ? {
             protocol: 'https',
