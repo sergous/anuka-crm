@@ -75,7 +75,12 @@ export default defineConfig(({ command, mode }) => {
     server: {
       port: port,
       host: VITE_HOST || '0.0.0.0',
-      allowedHosts: 'all',
+      allowedHosts: ['.replit.dev', '.spock.replit.dev', 'localhost'],
+      watch: {
+        usePolling: true,
+        interval: 1000,
+        ignored: ['**/node_modules/**', '**/dist/**', '**/.git/**', '**/coverage/**', '**/.cache/**'],
+      },
       ...(SSL_KEY_PATH && SSL_CERT_PATH
         ? {
             protocol: 'https',

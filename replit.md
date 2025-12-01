@@ -12,11 +12,13 @@ Twenty is an open-source CRM platform built with:
 1. PostgreSQL database created and configured
 2. Redis server installed and running
 3. Environment files configured (.env files in both packages)
-4. Vite configuration updated to allow all hosts (for Replit proxy)
+4. Vite configuration updated for Replit proxy (allowedHosts: ['.replit.dev', '.spock.replit.dev', 'localhost'])
 5. Frontend configured to run on port 5000 with host 0.0.0.0
 6. Node.js upgraded to v24.4.0
 7. **Migrated from Yarn 4 to Bun** for faster, more reliable package management
 8. Dependencies installed successfully with Bun
+9. **twenty-shared and twenty-ui packages built** - Required for frontend imports
+10. **Vite file watching configured** - Using polling mode (interval: 1000ms) to avoid ENOSPC errors
 
 ### Package Manager Migration Notes
 
@@ -64,14 +66,14 @@ cd packages/twenty-front && node ../../node_modules/vite/bin/vite.js --port 5000
 bun install
 ```
 
-### Building Shared Packages (If Needed)
-Before running the full application, shared packages may need to be built:
+### Building Shared Packages (Already Done)
+The shared packages have been built. If you need to rebuild them:
 ```bash
-cd packages/twenty-shared && npx vite build
-cd packages/twenty-ui && npx vite build
+cd packages/twenty-shared && bun run build
+cd packages/twenty-ui && bun run build
 ```
 
-Note: The barrel generation scripts have IPC issues with tsx in Replit, so vite build may generate empty chunks. A workaround was applied to lingui.config.ts to hardcode the locale constants.
+Note: The barrel generation scripts have IPC issues with tsx in Replit, so vite build may generate empty chunks for twenty-shared. A workaround was applied to lingui.config.ts to hardcode the locale constants.
 
 ### Full Stack (Backend Not Yet Configured)
 To run the full stack, the backend needs additional setup:
