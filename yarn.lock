@@ -6296,6 +6296,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint/js@npm:^9.39.1":
+  version: 9.39.1
+  resolution: "@eslint/js@npm:9.39.1"
+  checksum: 10c0/6f7f26f8cdb7ad6327bbf9741973b6278eb946f18f70e35406e88194b0d5c522d0547a34a02f2a208eec95c5d1388cdf7ccb20039efd2e4cb6655615247a50f1
+  languageName: node
+  linkType: hard
+
 "@eslint/object-schema@npm:^2.1.6":
   version: 2.1.6
   resolution: "@eslint/object-schema@npm:2.1.6"
@@ -41433,6 +41440,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jsonc-eslint-parser@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "jsonc-eslint-parser@npm:2.4.1"
+  dependencies:
+    acorn: "npm:^8.5.0"
+    eslint-visitor-keys: "npm:^3.0.0"
+    espree: "npm:^9.0.0"
+    semver: "npm:^7.3.5"
+  checksum: 10c0/735bd33435fee002bf7f07d23ba969b994971ab3b333a0e2641b79cd413819fe36540ba6ed29da9ebc69062625e8bfb167ff4415321f9640fdd9d0cf92dfa999
+  languageName: node
+  linkType: hard
+
 "jsonc-parser@npm:3.2.0":
   version: 3.2.0
   resolution: "jsonc-parser@npm:3.2.0"
@@ -56150,6 +56169,7 @@ __metadata:
     "@date-fns/tz": "npm:^1.4.1"
     "@emotion/react": "npm:^11.11.1"
     "@emotion/styled": "npm:^11.11.0"
+    "@eslint/js": "npm:^9.39.1"
     "@floating-ui/react": "npm:^0.24.3"
     "@graphql-codegen/cli": "npm:^3.3.1"
     "@graphql-codegen/client-preset": "npm:^4.1.0"
@@ -56271,6 +56291,7 @@ __metadata:
     jest-environment-node: "npm:^29.4.1"
     jest-fetch-mock: "npm:^3.0.3"
     jsdom: "npm:~22.1.0"
+    jsonc-eslint-parser: "npm:^2.4.1"
     libphonenumber-js: "npm:^1.10.26"
     lodash.camelcase: "npm:^4.3.0"
     lodash.chunk: "npm:^4.2.0"

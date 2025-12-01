@@ -1,6 +1,35 @@
-modules = ["nodejs-20", "bash"]
+modules = ["bash", "nodejs-24"]
 [agent]
 expertMode = true
 
 [nix]
 channel = "stable-25_05"
+packages = ["redis"]
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Twenty CRM Frontend"
+
+[[workflows.workflow]]
+name = "Twenty CRM Frontend"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd packages/twenty-front && node ../../node_modules/vite/bin/vite.js --port 5000 --host 0.0.0.0"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[ports]]
+localPort = 5000
+externalPort = 80

@@ -5,6 +5,7 @@
     "@date-fns/tz": "^1.4.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@eslint/js": "^9.39.1",
     "@floating-ui/react": "^0.24.3",
     "@linaria/core": "^6.2.0",
     "@linaria/react": "^6.2.1",
@@ -23,6 +24,7 @@
     "googleapis": "105",
     "hex-rgb": "^5.0.0",
     "immer": "^10.1.1",
+    "jsonc-eslint-parser": "^2.4.1",
     "libphonenumber-js": "^1.10.26",
     "lodash.camelcase": "^4.3.0",
     "lodash.chunk": "^4.2.0",
@@ -194,7 +196,7 @@
     "vite-plugin-svgr": "^4.2.0"
   },
   "engines": {
-    "node": "^24.5.0",
+    "node": "^24.4.0",
     "npm": "please-use-yarn",
     "yarn": ">=4.0.2"
   },
